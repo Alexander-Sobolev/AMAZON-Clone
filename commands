@@ -1,0 +1,13 @@
+yarn add prisma --save-dev 
+yarn prisma
+prisma init
+npx prisma generate
+nest g resource auth --no-spec
+yarn add class-validator
+yarn add class-transformer
+yarn add @faker-js/faker
+yarn add argon2
+yarn add @nestjs/config @nestjs/jwt
+yarn add nestjs/passport passport passport-jwt
+yarn add -D @types/password-jwt
+yarn add -D @nestjs/passport
