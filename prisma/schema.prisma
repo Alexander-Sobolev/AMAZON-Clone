@@ -23,92 +23,92 @@ model User {
 
   phone String @default("")
 
-  // orders    Order[]
-  // reviews   Review[]
+  orders    Order[]
+  reviews   Review[]
   // favorites Product[]
 }
 
-// model Product {
-//   id        Int      @id @default(autoincrement())
-//   createdAt DateTime @default(now()) @map("created_at")
-//   updatedAt DateTime @updatedAt @map("updated_at")
+model Product {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
-//   name        String   @unique
-//   slug        String   @unique
-//   description String
-//   price       Int
-//   images      String[]
+  name        String   @unique
+  slug        String   @unique
+  description String
+  price       Int
+  images      String[]
 
-//   orderItems OrderItem[]
-//   reviews    Review[]
+  orderItems OrderItem[]
+  reviews    Review[]
 
-//   category   Category? @relation(fields: [categoryId], references: [id])
-//   categoryId Int?      @map("category_id")
+  category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int?      @map("category_id")
 
-//   user   User? @relation(fields: [userId], references: [id])
-//   userId Int?  @map("user_id")
-// }
+  // user   User? @relation(fields: [userId], references: [id])
+  // userId Int?  @map("user_id")
+}
 
-// model Category {
-//   id        Int      @id @default(autoincrement())
-//   createdAt DateTime @default(now()) @map("created_at")
-//   updatedAt DateTime @updatedAt @map("updated_at")
+model Category {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
-//   name String @unique
-//   slug String @unique
+  name String @unique
+  // slug String @unique
 
-//   products Product[]
-// }
+  products Product[]
+}
 
-// model Review {
-//   id        Int      @id @default(autoincrement())
-//   createdAt DateTime @default(now()) @map("created_at")
-//   updatedAt DateTime @updatedAt @map("updated_at")
+model Review {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
-//   rating Int
-//   text   String
+  rating Int
+  text   String
 
-//   user   User @relation(fields: [userId], references: [id])
-//   userId Int  @map("user_id")
+  user   User @relation(fields: [userId], references: [id])
+  userId Int  @map("user_id")
 
-//   product   Product @relation(fields: [productId], references: [id])
-//   productId Int     @map("product_id")
-// }
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int     @map("product_id")
+}
 
-// model Order {
-//   id        Int      @id @default(autoincrement())
-//   createdAt DateTime @default(now()) @map("created_at")
-//   updatedAt DateTime @updatedAt @map("updated_at")
+model Order {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
-//   status EnumOrderStatus @default(PENDING)
+  status EnumOrderStatus @default(PENDING)
 
-//   items OrderItem[]
-//   total Int
+  items OrderItem[]
+  // total Int
 
-//   user   User @relation(fields: [userId], references: [id])
-//   userId Int  @map("user_id")
-// }
+  user   User @relation(fields: [userId], references: [id])
+  userId Int  @map("user_id")
+}
 
-// model OrderItem {
-//   id        Int      @id @default(autoincrement())
-//   createdAt DateTime @default(now()) @map("created_at")
-//   updatedAt DateTime @updatedAt @map("updated_at")
+model OrderItem {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
-//   quantity Int
-//   price    Int
+  quantity Int
+  price    Int
 
-//   order   Order? @relation(fields: [orderId], references: [id])
-//   orderId Int?   @map("order_id")
+  order   Order? @relation(fields: [orderId], references: [id])
+  orderId Int?   @map("order_id")
 
-//   product   Product @relation(fields: [productId], references: [id])
-//   productId Int     @map("product_id")
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int     @map("product_id")
 
-//   @@map("Order_item")
-// }
+  // @@map("Order_item")
+}
 
-// enum EnumOrderStatus {
-//   PENDING
-//   PAYED
-//   SHIPPED
-//   DELIVERED
-// }
+enum EnumOrderStatus {
+  PENDING
+  PAYED
+  SHIPPED
+  DELIVERED
+}
